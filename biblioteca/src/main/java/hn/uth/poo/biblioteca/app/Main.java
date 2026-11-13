@@ -1,16 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package hn.uth.poo.biblioteca.app;
 
-/**
- *
- * @author Danie
- */
+import hn.uth.poo.biblioteca.dao.Conexion;
+import java.sql.Connection;
+
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args) throws Exception {
+        try (Connection c = Conexion.obtener()) {
+            System.out.println("Conexion exitosa: " + !c.isClosed());
+        }
     }
 }
